@@ -1,0 +1,37 @@
+.TH PAM_GOOGLE_AUTHENTICATOR 8 "12 Oct 2015"
+.\" disable hyphenation
+.nh
+.SH NAME
+pam_google_authenticator \- PAM module for two-step verification
+.SH SYNOPSIS
+.B pam_google_authenticator.so
+.SH CAVEATS
+Run the google-authenticator binary to create a new secret key in your home directory. These settings will be stored in ~/.google_authenticator.
+
+For highest security, make sure that both password and OTP are being requested even if password and/or OTP are incorrect. This means that at least the first of pam_unix.so (or whatever other module is used to verify passwords) and pam_google_authenticator.so should be set as required, not requisite. It probably can't hurt to have both be required, but it could depend on the rest of your PAM config.
+
+If you use HOTP (counter based as opposed to time based) then add the option no_increment_hotp to make sure the counter isn't incremented for failed attempts.
+
+Add this line to your PAM configuration file:
+
+  auth required pam_google_authenticator.so no_increment_hotp
+
+When used with sshd remember to edit sshd_config:
+  ChallengeResponseAuthentication yes
+
+.SH EXAMPLES
+Add this line to /etc/pam.d/<FAVORITESERVICE>:
+
+auth required pam_google_authenticator.so nullok
+
+to the end of the the pam service configuration
+
+If needed only for a certain group:
+
+auth [default=1 success=ignore] pam_succeed_if.so quiet user ingroup <group>
+
+auth required pam_google_authenticator.so nullok
+.SH "SEE ALSO"
+google-authenticator(1)
+
+https://github.com/google/google-authenticator/wiki/PAM-Module-Instructions

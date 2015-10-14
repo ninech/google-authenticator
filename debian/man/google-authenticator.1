@@ -1,14 +1,22 @@
-.TH GOOGLE-AUTHENTICATOR 1 "25 Feb 2011"
+.TH GOOGLE-AUTHENTICATOR 1 "12 Oct 2015"
 .SH NAME
 google-authenticator \- Two-step verification
 .SH SYNOPSIS
 .B google-authenticator
 .SH DESCRIPTION
-Run the "google-authenticator" binary to create a new secret key in your home directory.
+Run the google-authenticator binary to create a new secret key in your home directory. These settings will be stored in ~/.google_authenticator.
 
-You will be shown a QRCode that you can scan using the Android "Google Authenticator" application. You have the option to manually enter the alphanumeric secret key into the Android "Google Authenticator" application. In either case, after you have added the key, click-and-hold until the context menu shows. Then check that the key's verification value matches.
+If your system supports the "libqrencode" library, you will be shown a QRCode that you can scan using the Android "Google Authenticator" application.
 
-Each time you log into your system, you will now be prompted for your TOTP code (timebased one-time-password) after having entered your normal user id and your normal UNIX account password.
+If your system does not have this library, you can either follow the URL that google-authenticator outputs, or you have to manually enter the alphanumeric secret key into the Android "Google Authenticator" application.
+
+In either case, after you have added the key, click-and-hold until the context menu shows. Then check that the key's verification value matches (this feature might not be available in all builds of the Android application).
+
+Each time you log into your system, you will now be prompted for your TOTP code (time based one-time-password) or HOTP (counter-based), depending on options given to google-authenticator, after having entered your normal user id and your normal UNIX account password.
+
+During the initial roll-out process, you might find that not all users have created a secret key yet. If you would still like them to be able to log in, you can pass the "nullok" option on the module's command line:
+
+auth required pam_google_authenticator.so nullok
 .SH "SEE ALSO"
 pam_google_authenticator(8)
 

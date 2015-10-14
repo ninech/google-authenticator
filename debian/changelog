@@ -4,7 +4,7 @@ google-authenticator (20151012-1) unstable; urgency=medium
   * Upstream update.
   * Especially add issuer field in QR codes.
 
- -- Roman Plessl <roman.plessl@nine.ch>  Web, 14 Oct 2015 10:48:10 +0200
+ -- Roman Plessl <roman.plessl@nine.ch>  Wed, 14 Oct 2015 10:48:10 +0200
 
 google-authenticator (20130529-2) unstable; urgency=low
 

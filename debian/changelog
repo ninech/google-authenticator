@@ -1,4 +1,4 @@
-google-authenticator (20150913-1) unstable; urgency=medium
+google-authenticator (20151012-1) unstable; urgency=medium
 
   * Upstream update.
   * Especially add issuer in QR Code and for Google Authenticator mobile

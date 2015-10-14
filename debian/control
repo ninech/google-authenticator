@@ -1,7 +1,7 @@
 Source: google-authenticator
 Section: admin
 Priority: optional
-Maintainer: LENART Janos <ocsi@debian.org>
+Maintainer: Roman Plessl <roman.plessl@nine.ch>
 Build-Depends: debhelper (>= 7.0.5), libpam0g-dev
 Standards-Version: 3.9.4
 Homepage: https://github.com/google/google-authenticator

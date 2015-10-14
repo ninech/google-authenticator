@@ -1,10 +1,10 @@
 google-authenticator (20151012-1) unstable; urgency=medium
 
+  * Change of maintainer.
   * Upstream update.
-  * Especially add issuer in QR Code and for Google Authenticator mobile
-    app.
+  * Especially add issuer field in QR codes.
 
- -- Roman Plessl <roman.plessl@nine.ch>  Mon, 12 Oct 2015 13:48:10 +0200
+ -- Roman Plessl <roman.plessl@nine.ch>  Web, 14 Oct 2015 10:48:10 +0200
 
 google-authenticator (20130529-2) unstable; urgency=low
 
